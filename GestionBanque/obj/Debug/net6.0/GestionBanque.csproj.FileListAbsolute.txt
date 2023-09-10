@@ -1,0 +1,15 @@
+C:\Users\user\Source\Repos\CyberSecu2_GestionBanque\GestionBanque\bin\Debug\net6.0\GestionBanque.exe
+C:\Users\user\Source\Repos\CyberSecu2_GestionBanque\GestionBanque\bin\Debug\net6.0\GestionBanque.deps.json
+C:\Users\user\Source\Repos\CyberSecu2_GestionBanque\GestionBanque\bin\Debug\net6.0\GestionBanque.runtimeconfig.json
+C:\Users\user\Source\Repos\CyberSecu2_GestionBanque\GestionBanque\bin\Debug\net6.0\GestionBanque.dll
+C:\Users\user\Source\Repos\CyberSecu2_GestionBanque\GestionBanque\bin\Debug\net6.0\GestionBanque.pdb
+C:\Users\user\Source\Repos\CyberSecu2_GestionBanque\GestionBanque\obj\Debug\net6.0\GestionBanque.csproj.AssemblyReference.cache
+C:\Users\user\Source\Repos\CyberSecu2_GestionBanque\GestionBanque\obj\Debug\net6.0\GestionBanque.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Source\Repos\CyberSecu2_GestionBanque\GestionBanque\obj\Debug\net6.0\GestionBanque.AssemblyInfoInputs.cache
+C:\Users\user\Source\Repos\CyberSecu2_GestionBanque\GestionBanque\obj\Debug\net6.0\GestionBanque.AssemblyInfo.cs
+C:\Users\user\Source\Repos\CyberSecu2_GestionBanque\GestionBanque\obj\Debug\net6.0\GestionBanque.csproj.CoreCompileInputs.cache
+C:\Users\user\Source\Repos\CyberSecu2_GestionBanque\GestionBanque\obj\Debug\net6.0\GestionBanque.dll
+C:\Users\user\Source\Repos\CyberSecu2_GestionBanque\GestionBanque\obj\Debug\net6.0\refint\GestionBanque.dll
+C:\Users\user\Source\Repos\CyberSecu2_GestionBanque\GestionBanque\obj\Debug\net6.0\GestionBanque.pdb
+C:\Users\user\Source\Repos\CyberSecu2_GestionBanque\GestionBanque\obj\Debug\net6.0\GestionBanque.genruntimeconfig.cache
+C:\Users\user\Source\Repos\CyberSecu2_GestionBanque\GestionBanque\obj\Debug\net6.0\ref\GestionBanque.dll

@@ -10,6 +10,9 @@ c1.Numero = "BE1234";
 c1.Titulaire = p1;
 c1.Depot(500);
 
+Banque b1 = new();
+b1.Nom = "Fortis";
+
 Console.WriteLine($"Le solde du compte {c1.Numero} de {c1.Titulaire.Nom} est de {c1.Solde}");
 
 c1.Retrait(200);
@@ -20,3 +23,7 @@ Console.WriteLine($"Le solde du compte {c1.Numero} de {c1.Titulaire.Nom} est de 
 c1.LigneDeCredit = 500;
 c1.Retrait(1000);
 Console.WriteLine($"Le solde du compte {c1.Numero} de {c1.Titulaire.Nom} est de {c1.Solde}");
+
+b1.Ajouter(c1);
+
+b1.Supprimer(c1.Numero);
