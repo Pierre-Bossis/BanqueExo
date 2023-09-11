@@ -38,15 +38,17 @@ namespace GestionBanque.Models
         /// <exception cref="Exception">Sera lancée si le compte est déjà présent dans la banque</exception>
         public void Ajouter(Courant c)
         {
-            if (!_comptes.ContainsKey(c.Numero))
-            {
-                _comptes.Add(c.Numero, c);
-            }
-            else
-            {
-                throw new Exception($"Le compte {c.Numero} est déjà présent!");
-            }
+            if (!_comptes.ContainsKey(c.Numero)) _comptes.Add(c.Numero, c);
 
+            else throw new Exception($"Le compte {c.Numero} est déjà présent!");
+
+        }
+
+        public void Supprimer(string numero)
+        {
+            if (_comptes.ContainsKey(numero)) _comptes.Remove(numero);
+
+            else throw new Exception($"Le compte {numero} n'existe pas !");
         }
 
     }
