@@ -25,5 +25,12 @@ c1.Retrait(1000);
 Console.WriteLine($"Le solde du compte {c1.Numero} de {c1.Titulaire.Nom} est de {c1.Solde}");
 
 b1.Ajouter(c1);
-
-b1.Supprimer(c1.Numero);
+try
+{
+	b1.Ajouter(c1);
+}
+catch (Exception ex)
+{
+    Console.WriteLine(ex.Message);
+}
+Courant? recup = b1["BE1234"];

@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\GestionBanque",
+    "\\GestionBanque\\Models"
   ],
-  "SelectedNode": "\\GestionBanque.sln",
+  "SelectedNode": "\\GestionBanque\\Program.cs",
   "PreviewInSolutionExplorer": false
 }

@@ -8,33 +8,45 @@ namespace GestionBanque.Models
 {
     public class Banque
     {
-        #region Private Fields
-        private string _nom;
-        #endregion
 
         #region Properties
-        public string Nom
-		{
-			get { return _nom; }
-			set { _nom = value; }
-		}
+        public string Nom { get; set; }
         #endregion
-        //test
-        //Un indexeur retournant un compte sur base de son numéro
-        public Dictionary<string, Courant> indexor = new();
-        //clé = numéro de compte
-        //valeur = la personne
 
-        public void Ajouter(Courant compte)
+        private Dictionary<string, Courant> _comptes = new();
+
+        public Courant? this[string numero]
         {
-            indexor.Add(compte.Numero, compte);
-            Console.WriteLine("Compte ajouté");
+            get
+            {
+                Courant? lecompte = null;
+                if (_comptes.TryGetValue(numero, out lecompte))
+                {
+                    return lecompte;
+                }
+                return lecompte; // ou return null
+            }
+            private set
+            {
+                _comptes[numero] = value;
+            }
         }
-
-        public void Supprimer(string numero)
+        /// <summary>
+        /// Permet d'ajouter un compte à la banque
+        /// </summary>
+        /// <param name="c">Le compte à ajouter <see cref="Courant"/></param>
+        /// <exception cref="Exception">Sera lancée si le compte est déjà présent dans la banque</exception>
+        public void Ajouter(Courant c)
         {
-            indexor.Remove(numero);
-            Console.WriteLine("Compte supprimé");
+            if (!_comptes.ContainsKey(c.Numero))
+            {
+                _comptes.Add(c.Numero, c);
+            }
+            else
+            {
+                throw new Exception($"Le compte {c.Numero} est déjà présent!");
+            }
+
         }
 
     }
