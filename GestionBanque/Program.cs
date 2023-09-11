@@ -33,4 +33,4 @@ catch (Exception ex)
 {
     Console.WriteLine(ex.Message);
 }
-Courant? recup = b1["BE1234"];
+//Courant? recup = b1["BE1234"];
