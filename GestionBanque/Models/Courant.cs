@@ -65,6 +65,19 @@ namespace GestionBanque.Models
             if (Montant >= 0)
                 Solde += Montant;
         }
+
+        public static double operator +(Courant c1,Courant c2)
+        {
+            if (c1.Solde < 0 && c2.Solde >= 0) return c2.Solde;
+            if(c2.Solde < 0 && c1.Solde >= 0) return c1.Solde;
+            if (c2.Solde < 0 && c1.Solde < 0) return 0;
+            return c1.Solde + c2.Solde;
+        }
+
+        public static double operator +(Courant c,double m)
+        {
+            return (c.Solde > 0 ? c.Solde : 0) + m;
+        }
         #endregion
 
     }

@@ -51,5 +51,17 @@ namespace GestionBanque.Models
             else throw new Exception($"Le compte {numero} n'existe pas !");
         }
 
+        public double AvoirDesComptes(Personne titulaire)
+        {
+            double res = 0;
+            foreach (Courant item in _comptes.Values)
+            {
+                if(titulaire.Nom == item.Titulaire.Nom)
+                {
+                    res = (item + res);
+                }
+            }
+            return res;
+        }
     }
 }
