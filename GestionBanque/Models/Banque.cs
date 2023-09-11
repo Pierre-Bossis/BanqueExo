@@ -19,7 +19,7 @@ namespace GestionBanque.Models
 			set { _nom = value; }
 		}
         #endregion
-
+        //test
         //Un indexeur retournant un compte sur base de son numéro
         public Dictionary<string, Courant> indexor = new();
         //clé = numéro de compte
