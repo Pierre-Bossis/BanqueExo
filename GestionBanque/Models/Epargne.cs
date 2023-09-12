@@ -16,5 +16,10 @@ namespace GestionBanque.Models
             base.Retrait(montant);
             DateDernierRetrait = DateTime.Now;
         }
+
+        protected override double CalculInteret()
+        {
+           return Solde / 100 * 4.5;
+        }
     }
 }

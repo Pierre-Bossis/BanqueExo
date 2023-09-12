@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GestionBanque.Models
 {
-    public class Compte
+    public abstract class Compte
     {
         protected double _solde;
 
@@ -35,6 +35,14 @@ namespace GestionBanque.Models
         public static double operator +(Compte c, double m)
         {
             return (c.Solde > 0 ? c.Solde : 0) + m;
+        }
+
+        protected abstract double CalculInteret();
+
+        public void AppliquerInteret()
+        {
+           Solde += CalculInteret();
+           Console.WriteLine(Solde);
         }
     }
 }

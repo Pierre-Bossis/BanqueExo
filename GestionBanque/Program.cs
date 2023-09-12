@@ -51,6 +51,7 @@ catch (Exception ex)
 }
 
 Console.WriteLine(banque.AvoirDesComptes(p1));
+c1.AppliquerInteret();
 //b1.Supprimer(c1.Numero);
 //try
 //{
