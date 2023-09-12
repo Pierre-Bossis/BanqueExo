@@ -13,13 +13,13 @@ namespace GestionBanque.Models
         public string Nom { get; set; }
         #endregion
 
-        private Dictionary<string, Courant> _comptes = new();
+        private Dictionary<string, Compte> _comptes = new();
 
-        public Courant? this[string numero]
+        public Compte? this[string numero]
         {
             get
             {
-                Courant? lecompte = null;
+                Compte? lecompte = null;
                 if (_comptes.TryGetValue(numero, out lecompte))
                 {
                     return lecompte;
@@ -36,7 +36,7 @@ namespace GestionBanque.Models
         /// </summary>
         /// <param name="c">Le compte à ajouter <see cref="Courant"/></param>
         /// <exception cref="Exception">Sera lancée si le compte est déjà présent dans la banque</exception>
-        public void Ajouter(Courant c)
+        public void Ajouter(Compte c)
         {
             if (!_comptes.ContainsKey(c.Numero)) _comptes.Add(c.Numero, c);
 
@@ -61,7 +61,6 @@ namespace GestionBanque.Models
                     res = (item + res);
                 }
             }
-            //test
             return res;
         }
     }
