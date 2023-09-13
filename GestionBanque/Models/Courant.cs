@@ -14,16 +14,32 @@ namespace GestionBanque.Models
 
         #region Propriétés
 
-        public override double LigneDeCredit
+        public  double LigneDeCredit
         {
             get { return _ligneDeCredit; }
-            set
+            private set
             {
                 if (value > 0)
                 {
                     _ligneDeCredit = value;
                 }
             }
+        }
+        #endregion
+
+        #region Constructors
+        public Courant(string numero, Personne titulaire) : base(numero, titulaire)
+        {
+        }
+
+        //public Courant(string numero, Personne titulaire, double solde) : base(numero,titulaire,solde)
+        //{
+            
+        //}
+
+        public Courant(string numero, Personne titulaire, double ligneDeCredit):this(numero,titulaire)
+        {
+            LigneDeCredit= ligneDeCredit;
         }
 
         #endregion

@@ -9,20 +9,22 @@ namespace GestionBanque.Models
 {
     internal class Epargne : Compte
     {
-        public DateTime DateDernierRetrait { get; set; }
+        public DateTime DateDernierRetrait { get; private set; }
 
-        public override double LigneDeCredit
+        #region Constructors
+
+        public Epargne(string numero, Personne titulaire):base(numero,titulaire)
         {
-            get
-            {
-                return 0;
-            }
-            set
-            {
-                throw new InvalidOperationException();
-            }
+            
         }
 
+        public Epargne(string numero, Personne titulaire, double solde) : base(numero, titulaire, solde)
+        {
+        }
+
+        #endregion
+
+        #region Methods
         public override void Retrait(double montant)
         {
             if (Solde - montant < 0) throw new Exception("Solde insuffisant");
@@ -32,7 +34,8 @@ namespace GestionBanque.Models
 
         protected override double CalculInteret()
         {
-           return Solde / 100 * 4.5;
-        }
+            return Solde / 100 * 4.5;
+        } 
+        #endregion
     }
 }

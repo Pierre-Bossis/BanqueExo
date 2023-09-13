@@ -10,17 +10,38 @@ namespace GestionBanque.Models
 {
     public abstract class Compte :  IBanker, ICustomer
     {
-        protected double _solde;
+        #region Private Fields
+        protected double _solde; 
+        #endregion
 
-        public string Numero { get; set; }
+        #region Props
+        public string Numero { get; private set; }
         public virtual double Solde
         {
             get { return _solde; }
             private set { _solde = value; }
         }
-        public Personne Titulaire { get; set; }
+        public Personne Titulaire { get; private set; }
 
-        public abstract double LigneDeCredit { get; set; }
+        #endregion
+
+        #region Abstract
+        //public abstract double LigneDeCredit { get; set; }  
+        #endregion
+
+        #region Constructors
+        public Compte(string numero, Personne titulaire)
+        {
+            Numero = numero;
+            Titulaire = titulaire;
+        }
+        public Compte(string numero, Personne titulaire, double solde) : this(numero, titulaire)
+        {
+            Solde = solde;
+        }
+        #endregion
+
+        #region Methods
         public virtual void Retrait(double montant)
         {
             if (montant < 0) throw new Exception("Montant doit etre positif");
@@ -43,8 +64,9 @@ namespace GestionBanque.Models
 
         public void AppliquerInteret()
         {
-           Solde += CalculInteret();
-           Console.WriteLine(Solde);
-        }
+            Solde += CalculInteret();
+            Console.WriteLine(Solde);
+        } 
+        #endregion
     }
 }

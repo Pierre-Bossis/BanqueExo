@@ -12,7 +12,6 @@ namespace GestionBanque.Interfaces
         //Si nous ajoutions la propriété « LigneDeCredit » à « IBanker », définir sur papier les modifications qu’il faudrait apporter à nos classes
         Personne Titulaire { get; }
         string Numero { get; }
-        double LigneDeCredit { get; set; }
         void AppliquerInteret();
     }
 }

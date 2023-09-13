@@ -2,23 +2,14 @@
 
 //utilité : ne pas laisser la liste en free access, chercher seulement des infos spécifique et qu'on connais
 //via le numéro de compte ici
-Personne p1 = new Personne();
-p1.Nom = "Pendragon";
-p1.Prenom = "Arthur";
-p1.DateNaiss = DateTime.Now;
-Personne p2 = new();
-p2.Prenom = "Arthur";
-p2.Nom = "Pendragon";
-p2.DateNaiss = DateTime.Now;
+Personne p1 = new Personne("Pendragon", "Arthur", DateTime.Now);
 
-Courant c1 = new Courant();
-c1.Numero = "BE1234";
-c1.Titulaire = p1;
+Personne p2 = new("Pendragon", "Arthur", DateTime.Now);
+
+Courant c1 = new Courant("BE1234",p1);
 c1.Depot(500);
 
-Courant c2 = new Courant();
-c2.Numero = "BE56789";
-c2.Titulaire = p2;
+Courant c2 = new Courant("BE56789",p2);
 c2.Depot(500.10);
 
 Banque banque = new();
@@ -31,7 +22,7 @@ Console.WriteLine($"Le solde du compte {c1.Numero} de {c1.Titulaire.Nom} est de 
 c1.Retrait(500);
 Console.WriteLine($"Le solde du compte {c1.Numero} de {c1.Titulaire.Nom} est de {c1.Solde}");
 
-c1.LigneDeCredit = 500;
+//c1.LigneDeCredit = 500; plus possible suite au passage en private du set
 c1.Retrait(1000);
 Console.WriteLine($"Le solde du compte {c1.Numero} de {c1.Titulaire.Nom} est de {c1.Solde}");
 
