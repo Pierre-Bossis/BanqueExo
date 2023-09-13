@@ -14,7 +14,7 @@ namespace GestionBanque.Models
 
         #region Propriétés
 
-        public double LigneDeCredit
+        public override double LigneDeCredit
         {
             get { return _ligneDeCredit; }
             set

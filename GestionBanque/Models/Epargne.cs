@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,6 +10,18 @@ namespace GestionBanque.Models
     internal class Epargne : Compte
     {
         public DateTime DateDernierRetrait { get; set; }
+
+        public override double LigneDeCredit
+        {
+            get
+            {
+                return 0;
+            }
+            set
+            {
+                throw new InvalidOperationException();
+            }
+        }
 
         public override void Retrait(double montant)
         {

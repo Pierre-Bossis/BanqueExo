@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GestionBanque.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Metadata;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace GestionBanque.Models
 {
-    public abstract class Compte
+    public abstract class Compte :  IBanker, ICustomer
     {
         protected double _solde;
 
@@ -19,6 +20,7 @@ namespace GestionBanque.Models
         }
         public Personne Titulaire { get; set; }
 
+        public abstract double LigneDeCredit { get; set; }
         public virtual void Retrait(double montant)
         {
             if (montant < 0) throw new Exception("Montant doit etre positif");
