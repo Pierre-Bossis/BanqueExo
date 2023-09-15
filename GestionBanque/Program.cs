@@ -1,5 +1,6 @@
 ﻿using GestionBanque.Models;
 
+
 //utilité : ne pas laisser la liste en free access, chercher seulement des infos spécifique et qu'on connais
 //via le numéro de compte ici
 Personne p1 = new Personne("Pendragon", "Arthur", DateTime.Now);
@@ -9,11 +10,13 @@ Personne p2 = new("Pendragon", "Arthur", DateTime.Now);
 Courant c1 = new Courant("BE1234",p1);
 c1.Depot(500);
 
+
 Courant c2 = new Courant("BE56789",p2);
 c2.Depot(500.10);
 
 Banque banque = new();
 banque.Nom = "Fortis";
+Compte.PassageEnNegatifEvent += banque.PassageEnNegatifAction;
 
 Console.WriteLine($"Le solde du compte {c1.Numero} de {c1.Titulaire.Nom} est de {c1.Solde}");
 

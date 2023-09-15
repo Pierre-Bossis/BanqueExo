@@ -12,7 +12,14 @@ namespace GestionBanque.Models
     public abstract class Compte :  IBanker, ICustomer
     {
         #region Private Fields
-        protected double _solde; 
+        protected double _solde;
+        #endregion
+
+        #region Events
+        //public delegate void PassageEnNegatifDelegate(Compte compte);
+
+        public static event Action<Compte> PassageEnNegatifEvent = null;
+
         #endregion
 
         #region Props
@@ -20,7 +27,10 @@ namespace GestionBanque.Models
         public virtual double Solde
         {
             get { return _solde; }
-            private set { _solde = value; }
+            private set
+            {
+                _solde = value;
+            }
         }
         public Personne Titulaire { get; private set; }
 
@@ -43,10 +53,21 @@ namespace GestionBanque.Models
         #endregion
 
         #region Methods
+
+        protected void TakeEvent()
+        {
+            PassageEnNegatifEvent?.Invoke(this);
+            // ou alors 
+            /*if(PassageEnNegatifEvent != null)
+            {
+                PassageEnNegatifEvent(this);
+            }*/
+        }
+
         public virtual void Retrait(double montant)
         {
             if (montant < 0) throw new Exception("Montant doit etre positif");
-            if (montant > Solde) throw new SoldeInsuffisantException("Le solde est insuffisant");
+            if (montant > Solde) /*throw*/ new SoldeInsuffisantException("Le solde est insuffisant");
             Solde -= montant;
 
         }

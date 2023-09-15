@@ -46,11 +46,18 @@ namespace GestionBanque.Models
         #region Methodes
         public override void Retrait(double Montant)
         {
+
             if (Montant <= Solde + LigneDeCredit)
             {
+                double AncienSolde = Solde;
                 base.Retrait(Montant);
+                if (AncienSolde >= 0 && Solde < 0)
+                {
+                    TakeEvent();
+                }
             }
-            else throw new SoldeInsuffisantException("");
+            else throw new SoldeInsuffisantException("Montant trop élevé");
+
 
         }
 

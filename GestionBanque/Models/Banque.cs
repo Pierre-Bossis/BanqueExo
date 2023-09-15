@@ -38,7 +38,11 @@ namespace GestionBanque.Models
         /// <exception cref="Exception">Sera lancée si le compte est déjà présent dans la banque</exception>
         public void Ajouter(Compte c)
         {
-            if (!_comptes.ContainsKey(c.Numero)) _comptes.Add(c.Numero, c);
+            if (!_comptes.ContainsKey(c.Numero))
+            {
+                _comptes.Add(c.Numero, c);
+            }
+
 
             else throw new Exception($"Le compte {c.Numero} est déjà présent!");
 
@@ -46,7 +50,10 @@ namespace GestionBanque.Models
 
         public void Supprimer(string numero)
         {
-            if (_comptes.ContainsKey(numero)) _comptes.Remove(numero);
+            if (_comptes.ContainsKey(numero))
+            {
+                _comptes.Remove(numero);
+            }
 
             else throw new Exception($"Le compte {numero} n'existe pas !");
         }
@@ -62,6 +69,11 @@ namespace GestionBanque.Models
                 }
             }
             return res;
+        }
+
+        public void PassageEnNegatifAction(Compte compte)
+        {
+            Console.WriteLine($"Le compte {compte.Numero} vient de passer en negatif.");
         }
     }
 }
