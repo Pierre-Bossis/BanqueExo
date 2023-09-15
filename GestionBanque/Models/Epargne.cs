@@ -1,7 +1,9 @@
-﻿using System;
+﻿using GestionBanque.Exceptions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Metadata.Ecma335;
+using System.Runtime.Intrinsics.X86;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -27,7 +29,7 @@ namespace GestionBanque.Models
         #region Methods
         public override void Retrait(double montant)
         {
-            if (Solde - montant < 0) throw new Exception("Solde insuffisant");
+            if (Solde - montant < 0) throw new SoldeInsuffisantException("");
             base.Retrait(montant);
             DateDernierRetrait = DateTime.Now;
         }

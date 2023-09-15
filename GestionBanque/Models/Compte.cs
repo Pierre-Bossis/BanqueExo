@@ -1,4 +1,5 @@
-﻿using GestionBanque.Interfaces;
+﻿using GestionBanque.Exceptions;
+using GestionBanque.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -45,13 +46,14 @@ namespace GestionBanque.Models
         public virtual void Retrait(double montant)
         {
             if (montant < 0) throw new Exception("Montant doit etre positif");
+            if (montant > Solde) throw new SoldeInsuffisantException("Le solde est insuffisant");
             Solde -= montant;
 
         }
 
         public virtual void Depot(double montant)
         {
-            if (montant >= 0)
+            if(montant < 0) throw new ArgumentOutOfRangeException("Montant doit être positif");
                 Solde += montant;
         }
 
